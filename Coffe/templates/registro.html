@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Registro de usuarios - Business Casual</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+</head>
+<body>
+<header>
+        <h1 class="site-heading text-center text-faded d-none d-lg-block" style="font-size: 36px;">
+            <span class="site-heading-upper text-primary mb-3">Bienvenido a Coffe</span>
+            <span class="site-heading-lower">Sign up</span>
+        </h1>
+    </header>
+
+<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="inicio.html">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="inicio.html">Home</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="recetarios.html">Recetarios</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Products</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">Store</a></li>
+                <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div th:if=${param.exito}>
+                <div class="alert alert-info">Se ha registrado exitosamente a
+                    la aplicación</div>
+            </div>
+            <div class="bg-faded p-5 rounded">
+                <h1 class="section-heading mb-4">
+                    <span class="section-heading-upper">Sign up</span>
+                </h1>
+                <form th:action="@{/registro}" method="post" th:object="${usuario}">
+                    <div class="form-group">
+                        <label class="control-label" for="nombre">Nombre :</label>
+                        <input id="nombre" type="text" class="form-control" th:field="*{nombre}"
+                               required autofocus="autofocus">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="apellido">Apellido :</label>
+                        <input id="apellido" class="form-control" th:field="*{apellido}"
+                               required autofocus="autofocus">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="email">Email :</label>
+                        <input id="email" type="email" class="form-control" th:field="*{email}"
+                               required autofocus="autofocus">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="password">Password :</label>
+                        <input type="password" id="password" class="form-control" th:field="*{password}"
+                               required autofocus="autofocus">
+                    </div>
+                    <div class="form-group text-center">
+    <button type="submit" class="btn btn-warning">Registrar</button>
+    <br>
+    <br>
+<span>Si estás registrado <a th:href="@{/login}" style="color: inherit; text-decoration: underline; transition: color 0.3s;" onmousedown="this.style.color='cream'" onmouseup="this.style.color='brown'" onmouseout="this.style.color='inherit'" onmouseleave="this.style.color='inherit'">inicia sesión aquí</a></span>
+</div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<footer class="footer text-faded text-center py-5">
+        <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2024</p></div>
+    </footer>
+
+
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
